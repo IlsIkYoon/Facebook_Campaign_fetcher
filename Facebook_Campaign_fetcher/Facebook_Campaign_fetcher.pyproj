@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5fbc273a-fb58-4bfd-9c85-e3a71c78e8d9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +24,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Facebook_Campaign_fetcher.py" />
+    <Compile Include="main.py" />
+    <Compile Include="Meta_dataClass.py" />
+    <Compile Include="Table_Print.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />
