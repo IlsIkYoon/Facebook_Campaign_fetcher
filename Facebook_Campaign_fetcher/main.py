@@ -1,5 +1,6 @@
-import Facebook_Campaign_fetcher
+ï»¿import Facebook_Campaign_fetcher
 import Table_Print
+import ExcelMaker
 
 
 ACCESS_TOKEN = 'EAAMy3As4sIgBQsLwGRotFO9m1367cHTOKPc6WpqG2QfZAcDPNBWnBzEZBFoDC70wMdlh8m7kAKcYqi9viiovwCnpkUw8tWCQowGJZCeDZBSyF6SCNrzEPZCmJ2QoVtGnBjUElIWGyWuwjMjnLh14m0W1nx88lBtjYSqKRsVBz4VpUBSdG2ZAVqsZAX8rAsG0ucTS1ysJDq8'
@@ -9,18 +10,17 @@ APP_SECRET = '2e296dff64c5e4341b24b3a7dad46d3b'
 
 def main():
     Facebook_Campaign_fetcher.do_Facebook_Init(APP_ID, APP_SECRET, ACCESS_TOKEN)
-    #Facebook_Campaign_fetcher.get_my_campaigns(AD_ACCOUNT_ID)
-    #Facebook_Campaign_fetcher.get_my_campaigns_with_costs(AD_ACCOUNT_ID)
-    #Facebook_Campaign_fetcher.get_marketing_metrics(AD_ACCOUNT_ID)
-    #Facebook_Campaign_fetcher.get_filtered_metrics(AD_ACCOUNT_ID)
+
     stats_list = Facebook_Campaign_fetcher.fetch_campaign_stats_objects(AD_ACCOUNT_ID)
-    # ROAS ±âÁØ ³»¸²Â÷¼ø Á¤·Ä
+
+    # ROAS ê¸°ì¤€ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
     sorted_by_lp_cost = sorted(stats_list, key=lambda x: x.lp_cost, reverse=True)
-    # ÁöÃâ ºñÀ²(spend_ratio) ±âÁØ ¿À¸§Â÷¼ø Á¤·Ä
-    sorted_by_budget = sorted(stats_list, key=lambda x: x.spend_ratio)
+    # ì§€ì¶œ ë¹„ìœ¨(spend_ratio) ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+    sorted_by_budget = sorted(stats_list, key=lambda x: x.conv, reverse = True)
     Table_Print.print_stats_table(sorted_by_lp_cost)
-
-
+    Table_Print.print_stats_table(sorted_by_budget)
+    
+    ExcelMaker.export_stats_to_excel(sorted_by_lp_cost, "ExcelTest.xlsx")
 
 
 

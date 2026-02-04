@@ -1,4 +1,4 @@
-from typing import List
+ï»¿from typing import List
 from Meta_dataClass import CampaignStats
 
 def print_stats_table(stats_list: List[CampaignStats]):
@@ -6,8 +6,8 @@ def print_stats_table(stats_list: List[CampaignStats]):
         print("Can't find Data...")
         return
 
-    # Çì´õ Á¤ÀÇ ¹× ±¸ºĞ¼±
-    # ÇÑ±Û ÀÌ¸§À» °í·ÁÇÏ¿© Name ÄÃ·³ÀÇ ÆøÀ» ³Ë³ËÈ÷ Àâ¾Ò½À´Ï´Ù.
+    # í—¤ë” ì •ì˜ ë° êµ¬ë¶„ì„ 
+    # í•œê¸€ ì´ë¦„ì„ ê³ ë ¤í•˜ì—¬ Name ì»¬ëŸ¼ì˜ í­ì„ ë„‰ë„‰íˆ ì¡ì•˜ìŠµë‹ˆë‹¤.
     header = f"{'Campaign Name':<32} | {'Conv':<6} | {'CTR':<7} | {'ROAS':<6} | {'LP Cost':<10} | {'Spend%':<8}"
     separator = "-" * len(header)
 
@@ -16,9 +16,9 @@ def print_stats_table(stats_list: List[CampaignStats]):
     print(separator)
 
     for stat in stats_list:
-        # °¢ ÇÊµå Á¤·Ä ¹× ¼Ò¼öÁ¡ ÀÚ¸®¼ö Á¦¾î
-        # :<32 (¿ŞÂÊ Á¤·Ä, 32Ä­), :>6 (¿À¸¥ÂÊ Á¤·Ä, 6Ä­)
-        name_str = stat.name[:30] # ÀÌ¸§ÀÌ ³Ê¹« ±æ¸é ÀÚ¸§
+        # ê° í•„ë“œ ì •ë ¬ ë° ì†Œìˆ˜ì  ìë¦¬ìˆ˜ ì œì–´
+        # :<32 (ì™¼ìª½ ì •ë ¬, 32ì¹¸), :>6 (ì˜¤ë¥¸ìª½ ì •ë ¬, 6ì¹¸)
+        name_str = stat.name[:30] # ì´ë¦„ì´ ë„ˆë¬´ ê¸¸ë©´ ìë¦„
         
         print(
             f"{name_str:<32} | "
@@ -31,6 +31,6 @@ def print_stats_table(stats_list: List[CampaignStats]):
     
     print(separator + "\n")
 
-# --- »ç¿ë ¿¹½Ã ---
+# --- ì‚¬ìš© ì˜ˆì‹œ ---
 # sorted_by_lp_cost = sorted(stats_list, key=lambda x: x.lp_cost, reverse=True)
 # print_stats_table(sorted_by_lp_cost)
