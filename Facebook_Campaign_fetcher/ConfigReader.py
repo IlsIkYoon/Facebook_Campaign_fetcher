@@ -1,4 +1,5 @@
 ﻿import os
+import AppData
 
 class ConfigLoader:
     def __init__(self, file_path="Config.config"):
@@ -38,5 +39,17 @@ class ConfigLoader:
         """config.key 형태로 접근할 수 있게 해주는 파이썬의 마법 메서드"""
         return self.configs.get(item)
 
-# 모듈로서 바로 인스턴스를 생성해두면 편리합니다.
-config = ConfigLoader()
+
+
+
+def ReadConfigFile(file_path = "Config.config"):
+    config = ConfigLoader('Config.config')
+    
+    auth_data = AppData.AppAuthData()
+    auth_data.APP_ID = config.get('APP_ID')
+    auth_data.APP_SECRET = config.get('APP_SECRET')
+    auth_data.ACCESS_TOKEN = config.get('ACCESS_TOKEN')
+    auth_data.AD_ACCOUNT_ID = config.get('AD_ACCOUNT_ID')
+
+    return auth_data
+
