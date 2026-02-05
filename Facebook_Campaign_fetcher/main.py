@@ -1,10 +1,23 @@
-﻿import Facebook_Campaign_fetcher
+﻿import flet as ft
+from UI_Layout import AppView
+from EventController import AppController
+import Facebook_Campaign_fetcher
 import Table_Print
 import ExcelMaker
 import ConfigReader
 
 
-def main():
+async def main(page: ft.Page):
+    view = AppView(page)
+
+    controller = AppController(view)
+
+    page.add(view.build(controller))
+
+
+
+
+    """
     authData = ConfigReader.ReadConfigFile('Config.config')
 
     Facebook_Campaign_fetcher.do_Facebook_Init(authData.APP_ID, authData.APP_SECRET, authData.ACCESS_TOKEN)
@@ -19,8 +32,8 @@ def main():
     Table_Print.print_stats_table(sorted_by_budget)
     
     ExcelMaker.export_stats_to_excel(sorted_by_lp_cost, "ExcelTest.xlsx")
-
+    """
 
 
 if __name__ == "__main__":
-    main()
+    ft.app(target=main)

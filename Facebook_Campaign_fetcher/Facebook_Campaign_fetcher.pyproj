@@ -25,11 +25,13 @@
   <ItemGroup>
     <Compile Include="AppData.py" />
     <Compile Include="ConfigReader.py" />
+    <Compile Include="EventController.py" />
     <Compile Include="ExcelMaker.py" />
     <Compile Include="Facebook_Campaign_fetcher.py" />
     <Compile Include="main.py" />
     <Compile Include="Meta_dataClass.py" />
     <Compile Include="Table_Print.py" />
+    <Compile Include="UI_Layout.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />
