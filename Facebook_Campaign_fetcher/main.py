@@ -1,14 +1,19 @@
 ﻿import Facebook_Campaign_fetcher
 import Table_Print
 import ExcelMaker
+import ConfigReader
 
-
-ACCESS_TOKEN = 'EAAMy3As4sIgBQsLwGRotFO9m1367cHTOKPc6WpqG2QfZAcDPNBWnBzEZBFoDC70wMdlh8m7kAKcYqi9viiovwCnpkUw8tWCQowGJZCeDZBSyF6SCNrzEPZCmJ2QoVtGnBjUElIWGyWuwjMjnLh14m0W1nx88lBtjYSqKRsVBz4VpUBSdG2ZAVqsZAX8rAsG0ucTS1ysJDq8'
-AD_ACCOUNT_ID = 'act_609787644136633'
-APP_ID = '900345592590472'
-APP_SECRET = '2e296dff64c5e4341b24b3a7dad46d3b'
 
 def main():
+
+    config = ConfigReader.ConfigLoader('Config.config')
+    APP_ID = config.get('APP_ID')
+    AD_ACCOUNT_ID = config.get('AD_ACCOUNT_ID')
+    APP_SECRET = config.get('APP_SECRET')
+    ACCESS_TOKEN = config.get('ACCESS_TOKEN')
+
+
+
     Facebook_Campaign_fetcher.do_Facebook_Init(APP_ID, APP_SECRET, ACCESS_TOKEN)
 
     stats_list = Facebook_Campaign_fetcher.fetch_campaign_stats_objects(AD_ACCOUNT_ID)

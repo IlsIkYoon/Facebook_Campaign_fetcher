@@ -23,6 +23,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ConfigReader.py" />
     <Compile Include="ExcelMaker.py" />
     <Compile Include="Facebook_Campaign_fetcher.py" />
     <Compile Include="main.py" />
