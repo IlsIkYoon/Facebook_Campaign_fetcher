@@ -9,3 +9,4 @@ class CampaignStats:
     roas: float
     lp_cost: float
     spend_ratio: float
+    video_url: str = ""
